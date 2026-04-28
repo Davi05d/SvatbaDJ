@@ -6,16 +6,25 @@
 <title>Naše svatba</title>
 
 <style>
+    
+:root {
 
+    --olive:      #6B705C;
+    --terracotta: #C97A56;
+    --brown:      #4A2F24;
+    --copper:     #C2882D;
+
+}
+    
 html {
     scroll-behavior: smooth;
 }
 
 body {
     margin: 0;
-    font-family: Georgia, serif;
-    background: #556B2F; /* Olive Green */
-    color: #5A3A29; /* Brown */
+        font-family: Sylfaen, Georgia, serif;
+    background: var(--olive);
+    color: var(--brown);
 }
 
 /* HAMBURGER BUTTON */
@@ -25,7 +34,7 @@ body {
     top: 20px;
     left: 20px;
     font-size: 28px;
-    background: #C96A3D; /* Terracotta */
+    background: var(--copper);
     color: white;
     border: none;
     padding: 10px 14px;
@@ -69,16 +78,19 @@ nav a {
 
 main {
     padding: 80px 24px;
+    max-width: 1100px;   /* omezení šířky */
+    margin: 0 auto;      /* vycentrování */
 }
 
 section {
     min-height: 70vh;
     background: #C96A3D; /* Terracotta */
+    margin: 40px 20px;   /* odsazení zleva i zprava */
     margin-bottom: 40px;
     padding: 48px;
     border-radius: 24px;
-    color: #5A3A29; /* Brown text */
-}
+    background: var(--terracotta);
+    color: var(--brown);}
 
 </style>
 </head>
