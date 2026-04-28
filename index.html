@@ -9,10 +9,11 @@
     
 :root {
 
-    --olive:      #6B705C;
-    --terracotta: #C97A56;
+    --olive:      #4F542A;
+    --terracotta: #BB8026;
     --brown:      #4A2F24;
     --copper:     #C2882D;
+	--sage:       #A6B079;
 
 }
     
@@ -35,7 +36,7 @@ body {
     left: 20px;
     font-size: 28px;
     background: var(--copper);
-    color: white;
+    color: var(--brown);
     border: none;
     padding: 10px 14px;
     border-radius: 10px;
@@ -51,8 +52,8 @@ nav {
     left: -260px;
     width: 260px;
     height: 100vh;
-    background: #556B2F; /* Olive */
-    padding: 40px 24px;
+    background: var(--sage); 
+    padding: 100px 24px 40px 24px; 
     box-sizing: border-box;
     transition: 0.3s;
     z-index: 1000;
@@ -69,7 +70,7 @@ nav h2 {
 nav a {
     display: block;
     text-decoration: none;
-    color: #ffffff;
+    color: var(--brown);
     margin: 14px 0;
     font-size: 18px;
 }
@@ -103,7 +104,7 @@ section {
 
 <nav id="menu">
 
-<h2>Naše svatba</h2>
+
 
 <a href="#termin" onclick="toggleMenu()">Termín</a>
 <a href="#misto" onclick="toggleMenu()">Místo</a>
