@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Naše svatba</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: #efe6dc;
+      color: #2f2a26;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 220px;
+      height: 100vh;
+      background: #d8c4b0;
+      padding: 40px 24px;
+      box-sizing: border-box;
+    }
+
+    nav h2 {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    nav a {
+      display: block;
+      color: #2f2a26;
+      text-decoration: none;
+      margin: 14px 0;
+    }
+
+    main {
+      margin-left: 220px;
+      padding: 40px;
+    }
+
+    section {
+      min-height: 70vh;
+      background: #fff8f0;
+      margin-bottom: 40px;
+      padding: 48px;
+      border-radius: 24px;
+    }
+
+    h1, h2 {
+      font-weight: normal;
+    }
+
+    @media (max-width: 800px) {
+      nav {
+        position: static;
+        width: auto;
+        height: auto;
+      }
+
+      main {
+        margin-left: 0;
+        padding: 20px;
+      }
+
+      section {
+        padding: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <h2>Naše svatba</h2>
+    <a href="#termin">Termín</a>
+    <a href="#misto">Místo</a>
+    <a href="#ubytovani">Ubytování</a>
+    <a href="#dresscode">Dress code</a>
+    <a href="#harmonogram">Harmonogram</a>
+    <a href="#deti">Děti a mazlíčci</a>
+    <a href="#dary">Svatební dary</a>
+    <a href="#rsvp">Potvrzení účasti</a>
+  </nav>
+
+  <main>
+    <section id="uvod">
+      <h1>Naše svatba</h1>
+      <p>Vítejte na našem svatebním webu. Postupně zde doplníme všechny praktické informace.</p>
+    </section>
+
+    <section id="termin">
+      <h2>Termín a příjezd</h2>
+      <p>Zde bude datum, čas příjezdu a základní organizační informace.</p>
+    </section>
+
+    <section id="misto">
+      <h2>Svatební místo</h2>
+      <p>Informace o místě, adresa, mapa a parkování v areálu.</p>
+    </section>
+
+    <section id="ubytovani">
+      <h2>Ubytování</h2>
+      <p>Informace o ubytování, fotky, praktické věci pro rodiny s dětmi a možnosti ubytování v okolí.</p>
+    </section>
+
+    <section id="dresscode">
+      <h2>Dress code</h2>
+      <p>Zde bude doporučení k oblečení.</p>
+    </section>
+
+    <section id="harmonogram">
+      <h2>Harmonogram</h2>
+      <p>Zde bude časový plán svatebního dne.</p>
+    </section>
+
+    <section id="deti">
+      <h2>Děti a domácí mazlíčci</h2>
+      <p>Praktické informace pro rodiče a hosty s mazlíčky.</p>
+    </section>
+
+    <section id="dary">
+      <h2>Svatební dary</h2>
+      <p>Zde bude informace ke svatebním darům.</p>
+    </section>
+
+    <section id="rsvp">
+      <h2>Potvrzení účasti</h2>
+      <p>Zde bude odkaz na formulář.</p>
+    </section>
+  </main>
+
+</body>
+</html>
