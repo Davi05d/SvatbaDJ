@@ -9,12 +9,19 @@
     
 :root {
 
-    --olive:      #4F542A;
-    --terracotta: #BB8026;
-    --brown:      #4A2F24;
+    --olive:      #44452A;
+    --terracotta: #A9582A;
+    --brown:      #734A31;
     --copper:     #C2882D;
 	--sage:       #A6B079;
+	--white:      #F8F6F6;
+	--pink:       #EEE9E6;
+	--slonovina   #ECE7CD;
 
+    --logo-size: clamp(110px, 18vw, 240px);
+    --name-size: clamp(38px, 7vw, 90px);
+    --surname-size: clamp(18px, 3vw, 36px);
+    --gap: clamp(12px, 3vw, 36px);
 }
     
 html {
@@ -24,8 +31,8 @@ html {
 body {
     margin: 0;
         font-family: Sylfaen, Georgia, serif;
-    background: var(--olive);
-    color: var(--brown);
+    background: var(--white);
+    color: var(--white);
 }
 
 /* HAMBURGER BUTTON */
@@ -35,13 +42,16 @@ body {
     top: 20px;
     left: 20px;
     font-size: 28px;
-    background: var(--copper);
+    background: var(--pink);
     color: var(--brown);
     border: none;
+	border-radius: 50%;
     padding: 10px 14px;
-    border-radius: 10px;
     cursor: pointer;
     z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* MENU PANEL */
@@ -52,12 +62,20 @@ nav {
     left: -260px;
     width: 260px;
     height: 100vh;
-    background: var(--sage); 
-    padding: 100px 24px 40px 24px; 
+
+    padding: 100px 24px 40px 24px;
     box-sizing: border-box;
     transition: 0.3s;
     z-index: 1000;
+
+    overflow: hidden;
+
+    background-image: url("stromy.png");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
+
 
 nav.open {
     left: 0;
@@ -70,7 +88,7 @@ nav h2 {
 nav a {
     display: block;
     text-decoration: none;
-    color: var(--brown);
+    color: var(--olive);
     margin: 14px 0;
     font-size: 18px;
 }
@@ -78,33 +96,137 @@ nav a {
 /* CONTENT */
 
 main {
-    padding: 80px 24px;
+    padding: 0 24px 80px 24px;
     max-width: 1100px;   /* omezení šířky */
     margin: 0 auto;      /* vycentrování */
 }
 
+
 section {
-    min-height: 70vh;
-    background: #C96A3D; /* Terracotta */
     margin: 40px 20px;   /* odsazení zleva i zprava */
     margin-bottom: 40px;
     padding: 48px;
     border-radius: 24px;
+    background: var(--pink);
+    color: var(--olive);}
+	
+section.hero {
+    width: 100%;
+    min-height: 0;
+    margin: 0;
+    padding: 55px 24px 28px 24px;
     background: var(--terracotta);
-    color: var(--brown);}
+    border-radius: 0;
+    box-sizing: border-box;
+}
+
+.hero-inner {
+    width: min(760px, 86vw);
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.hero-lockup {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 34% 32% 34%;
+    align-items: center;
+}
+
+.hero-logo {
+    display: block;
+    width: var(--logo-size);
+    max-width: 100%;
+    justify-self: center;
+}
+
+.person-left {
+    text-align: right;
+    justify-self: end;
+}
+
+.person-right {
+    text-align: left;
+    justify-self: start;
+}
+
+.first-name {
+    font-size: var(--name-size);
+    line-height: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.last-name {
+    margin-top: 8px;
+    font-size: var(--surname-size);
+    line-height: 1;
+    letter-spacing: 0.08em;
+}
+
+.hero-separator {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.hero-date {
+    width: 100%;
+    text-align: center;
+
+    font-size: var(--surname-size);
+    letter-spacing: 0.12em;
+
+    color: var(--olive);
+
+    margin: 0;
+}
+
+.hero-branch-img {
+    display: block;
+    width: 180px;
+    margin: 0 auto;
+}
+
+.topbar {
+    height: 100px;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 24px;
+    box-sizing: border-box;
+}
+
+.topbar-logo {
+    height: 95px;
+    width: auto;
+}
 
 </style>
 </head>
 
+
+
+
+
+
+
+
 <body>
+
 
 <button class="menu-button" onclick="toggleMenu()">
 ☰
 </button>
 
 <nav id="menu">
-
-
 
 <a href="#termin" onclick="toggleMenu()">Termín</a>
 <a href="#misto" onclick="toggleMenu()">Místo</a>
@@ -117,8 +239,38 @@ section {
 
 </nav>
 
-<main>
+<header class="topbar">
+    <img src="logoV2.png" alt="Logo" class="topbar-logo">
+</header>
 
+<section class="hero" id="uvod">
+    <div class="hero-inner">
+
+        <div class="hero-lockup">
+            <div class="person person-left">
+                <div class="first-name">Jana</div>
+                <div class="last-name">Talová</div>
+            </div>
+
+            <img src="logo2.png" alt="Svatební logo" class="hero-logo">
+
+            <div class="person person-right">
+                <div class="first-name">David</div>
+                <div class="last-name">Kala</div>
+            </div>
+        </div>
+
+        <img src="separator2.png" alt="" class="hero-separator">
+		
+		<div class="hero-date">
+			Sobota 10. 10. 2026
+		</div>
+
+        <img src="ratolest.png" alt="" class="hero-branch-img">
+	</div>
+</section>
+
+<main>
 <section id="termin">
 <h2>Termín a příjezd</h2>
 <p>Zde bude datum a informace o příjezdu.</p>
