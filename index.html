@@ -3,25 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Naše svatba</title>
-
+<title>Svatba</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
     
 :root {
 
     --olive:      #44452A;
-    --terracotta: #A9582A;
+    /*--terracotta: #A9582A;*/
+	--terracotta: #B14920;
     --brown:      #734A31;
     --copper:     #C2882D;
 	--sage:       #A6B079;
 	--white:      #F8F6F6;
 	--pink:       #EEE9E6;
-	--slonovina   #ECE7CD;
+	--slonovina:  #ECE7CD;
 
-    --logo-size: clamp(110px, 18vw, 240px);
-    --name-size: clamp(38px, 7vw, 90px);
-    --surname-size: clamp(18px, 3vw, 36px);
+    --logo-size: clamp(100px, 20vw, 200px);
+    --name-size: clamp(34px, 6vw, 76px);
+    --surname-size: clamp(10px, 2.5vw, 25px);
     --gap: clamp(12px, 3vw, 36px);
+	
+	--hero-text: var(--slonovina);
+	
+	--font-main: 'Inter', sans-serif;
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-script: 'Cormorant Garamond', serif;
+	--font-secondNames: 'Inter', sans-serif;
 }
     
 html {
@@ -30,7 +39,8 @@ html {
 
 body {
     margin: 0;
-        font-family: Sylfaen, Georgia, serif;
+    /*font-family: Sylfaen, Georgia, serif;/*
+	font-family: var(--font-main);
     background: var(--white);
     color: var(--white);
 }
@@ -39,20 +49,26 @@ body {
 
 .menu-button {
     position: fixed;
-    top: 20px;
-    left: 20px;
-    font-size: 28px;
-    background: var(--pink);
-    color: var(--brown);
+    top: 16px;
+    left: 16px;
+
+    background: transparent;
     border: none;
-	border-radius: 50%;
-    padding: 10px 14px;
+    padding: 0;
+
     cursor: pointer;
     z-index: 1001;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+    display: block;
 }
+
+.menu-button img {
+    width: 94px;        /* uprav dle potřeby */
+    height: auto;
+    display: block;
+}
+
+
 
 /* MENU PANEL */
 
@@ -70,7 +86,7 @@ nav {
 
     overflow: hidden;
 
-    background-image: url("stromy.png");
+    background-image: url("stromy2.png");
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -87,28 +103,64 @@ nav h2 {
 
 nav a {
     display: block;
-    text-decoration: none;
+    padding: 12px 18px;
+    margin: 10px 0;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.6);
     color: var(--olive);
-    margin: 14px 0;
-    font-size: 18px;
+    text-decoration: none;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease;
+}
+
+nav a:hover {
+    background: var(--terracotta);
+    color: var(--white);
+    transform: translateX(4px);
+}
+
+#overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,0.4);
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: 0.3s;
+
+    z-index: 900;
+}
+
+#overlay.open {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 /* CONTENT */
 
 main {
     padding: 0 24px 80px 24px;
-    max-width: 1100px;   /* omezení šířky */
+    max-width: 820px;     /* omezení šířky */
     margin: 0 auto;      /* vycentrování */
+	text-align: center;
 }
 
 
 section {
     margin: 40px 20px;   /* odsazení zleva i zprava */
     margin-bottom: 40px;
-    padding: 48px;
+	padding: 20px 24px 24px 24px;
     border-radius: 24px;
     background: var(--pink);
     color: var(--olive);}
+	
+section h2 {
+    margin-top: 0;
+	font-family: var(--font-heading);
+}
 	
 section.hero {
     width: 100%;
@@ -121,71 +173,75 @@ section.hero {
 }
 
 .hero-inner {
-    width: min(760px, 86vw);
+    width: min(780px, calc(100vw - 88px));
     margin: 0 auto;
-
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    gap: 6px;
 }
 
 .hero-lockup {
     width: 100%;
-
     display: grid;
-    grid-template-columns: 34% 32% 34%;
+    grid-template-columns: 1fr var(--logo-size) 1fr;
     align-items: center;
 }
 
 .hero-logo {
-    display: block;
+   display: block;
     width: var(--logo-size);
     max-width: 100%;
     justify-self: center;
+    z-index: 1;
 }
 
 .person-left {
-    text-align: right;
+    text-align: center;
     justify-self: end;
+    margin-right: clamp(2px, 2vw, 10px);
 }
 
 .person-right {
-    text-align: left;
+    text-align: center;
     justify-self: start;
+    margin-left: clamp(2px, 2vw, 10px);
 }
 
 .first-name {
     font-size: var(--name-size);
     line-height: 0.9;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.05em;
+	color: var(--hero-text);
+	font-family: var(--font-script);
 }
 
 .last-name {
     margin-top: 8px;
     font-size: var(--surname-size);
     line-height: 1;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.2em;
+	color: var(--hero-text);
+	font-family: var(--font-secondNames);
+	font-weight: 300; 
 }
 
 .hero-separator {
     display: block;
     width: 100%;
     max-width: 100%;
-    margin: 0 auto;
+    margin: 4px auto 0 auto;
 }
 
 .hero-date {
     width: 100%;
     text-align: center;
-
-    font-size: var(--surname-size);
-    letter-spacing: 0.12em;
-
-    color: var(--olive);
-
-    margin: 0;
+    font-size: clamp(22px, 3vw, 36px);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--slonovina);
+    margin: 15px auto 8px auto;
 }
 
 .hero-branch-img {
@@ -209,6 +265,175 @@ section.hero {
     width: auto;
 }
 
+.map-image {
+    width: 50%;
+    max-width: 600px;
+    border-radius: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+}
+
+.map-image:hover {
+    transform: scale(1.02);
+}
+
+.palette {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.color {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;   
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.color-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    color: var(--brown);
+}
+
+.qr-block {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.qr-block img {
+    width: 160px;
+    height: auto;
+    border-radius: 12px;
+    background: var(--white);
+    padding: 10px;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.qr-block p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--brown);
+}
+
+.photo {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 16px;
+    margin-top: 20px;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.photo-grid img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 14px;
+    display: block;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+}
+
+.photo-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+
+    transition: transform 0.3s ease;
+}
+
+/* zoom při hover */
+.photo-item:hover img {
+    transform: scale(1.08);
+}
+
+/* popisek */
+.photo-item span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background: rgba(0,0,0,0.5);
+    color: white;
+
+    padding: 8px;
+    font-size: 14px;
+
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.photo-item:hover span {
+    opacity: 1;
+}
+
+#lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 2000;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 70%;
+    border-radius: 12px;
+}
+
+#lightbox p {
+    color: white;
+    margin-top: 12px;
+    font-size: 16px;
+}
+
+.rsvp-btn {
+    display: inline-block;
+
+    margin-top: 20px;
+    padding: 14px 32px;
+
+    border-radius: 999px;   /* dělá tu elipsu */
+
+    background: var(--terracotta);
+    color: var(--white);
+
+    text-decoration: none;
+    font-size: 16px;
+    letter-spacing: 0.08em;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+    transition: all 0.2s ease;
+}
+
 </style>
 </head>
 
@@ -222,8 +447,13 @@ section.hero {
 <body>
 
 
-<button class="menu-button" onclick="toggleMenu()">
-☰
+<button class="menu-button logo-menu-button" onclick="toggleMenu()" aria-label="Otevřít menu">
+    <img src="logo2_menu.png" alt="">
+    <span class="burger-lines">
+        <span></span>
+        <span></span>
+        <span></span>
+    </span>
 </button>
 
 <nav id="menu">
@@ -231,17 +461,21 @@ section.hero {
 <a href="#termin" onclick="toggleMenu()">Termín</a>
 <a href="#misto" onclick="toggleMenu()">Místo</a>
 <a href="#ubytovani" onclick="toggleMenu()">Ubytování</a>
+<a href="#deti" onclick="toggleMenu()">Děti a mazlíčci</a>
 <a href="#dresscode" onclick="toggleMenu()">Dress code</a>
 <a href="#harmonogram" onclick="toggleMenu()">Harmonogram</a>
-<a href="#deti" onclick="toggleMenu()">Děti a mazlíčci</a>
 <a href="#dary" onclick="toggleMenu()">Svatební dary</a>
 <a href="#rsvp" onclick="toggleMenu()">Potvrzení účasti</a>
 
+
 </nav>
+<div id="overlay" onclick="toggleMenu()"></div>
+
 
 <header class="topbar">
-    <img src="logoV2.png" alt="Logo" class="topbar-logo">
+   <!-- <img src="logoV2.png" alt="Logo" class="topbar-logo">-->
 </header>
+
 
 <section class="hero" id="uvod">
     <div class="hero-inner">
@@ -249,14 +483,14 @@ section.hero {
         <div class="hero-lockup">
             <div class="person person-left">
                 <div class="first-name">Jana</div>
-                <div class="last-name">Talová</div>
+                <div class="last-name">TALOVÁ</div>
             </div>
 
-            <img src="logo2.png" alt="Svatební logo" class="hero-logo">
+            <img src="logo5.png" alt="Svatební logo" class="hero-logo">
 
             <div class="person person-right">
                 <div class="first-name">David</div>
-                <div class="last-name">Kala</div>
+                <div class="last-name">KALA</div>
             </div>
         </div>
 
@@ -266,57 +500,183 @@ section.hero {
 			Sobota 10. 10. 2026
 		</div>
 
-        <img src="ratolest.png" alt="" class="hero-branch-img">
+         <img src="ratolest4.png" alt="" class="hero-branch-img">
 	</div>
 </section>
 
 <main>
 <section id="termin">
 <h2>Termín a příjezd</h2>
-<p>Zde bude datum a informace o příjezdu.</p>
+<p>Obřad se koná  10. října ve 12:00. <br>
+Příjezd možný už v pátek cca od 17:00.<br>
+Odjezd v neděli po snídani. Budeme rádi, když s námi strávíte celý víkend.</p>
 </section>
 
 <section id="misto">
 <h2>Svatební místo</h2>
-<p>Informace o místě, mapa a parkování.</p>
+
+<p>Srub Ježkovec <br> 
+Krasonice 55, 58864 Krasonice <br> 
+<a href="https://maps.app.goo.gl/mHrcDxMhwLSaV8aY9" target="_blank">
+    <img src="mapa.png" alt="Mapa místa" class="map-image">
+</a>
+ <br> 
+Na místo se dostanete pohodlně autem a parkování je možné přímo u srubu.
+</p>
+<img src="srub1.jpeg" alt="Svatební místo" class="photo">
+
 </section>
 
 <section id="ubytovani">
 <h2>Ubytování</h2>
-<p>Informace o ubytování a praktické věci.</p>
+<p>Ubytování je v areálu srubu a je pro všechny hosty plně hrazené. </p>
+<p>
+K dispozici budou chatky pro dvě až tři osoby primárně pro rodiny s dětmi, a dále společné spaní v podkroví hlavní budovy.
+Chatky jsou vybavené topením, takže se nemusíte obávat chladu. Sprchy i toalety jsou společné a nacházejí se v hlavní budově srubu.
+<br> <strong>Vezměte si, prosím, vlastní ručníky.</strong><br >
+</p>
+<p>
+Pokud preferujete větší soukromí nebo komfort, naprosto vás chápeme. V okolí, například v Telči nebo blízkých vesnicích je mnoho variant ubytování a určitě si najdete to, které vyhovuje vašemu vkusu. Budeme mít k dispozici svatebního řidiče, který vás po domluvě může odvézt i přivézt.
+</p>
+<div class="photo-grid">
+
+    <div class="photo-item">
+        <img src="srub1.jpeg" alt="Hlavní budova">
+        <span>Hlavní budova srubu</span>
+    </div>
+
+    <div class="photo-item">
+        <img src="srub2.jpeg" alt="Chatky">
+        <span>Chatky pro hosty</span>
+    </div>
+
+    <div class="photo-item">
+        <img src="srub3.jpg" alt="Okolí">
+        <span>Okolní příroda</span>
+    </div>
+	
+	    <div class="photo-item">
+        <img src="srub3.jpg" alt="Okolí">
+        <span>Okolní příroda</span>
+    </div>
+
+</div>
 </section>
+
+
+
+<section id="deti">
+<h2>Děti a domácí mazlíčci</h2>
+<p>Obřad si přejeme prožít striktně bez dětí. Po dobu obřadu proto zajistíme dětský koutek i profesionální hlídání. </p>
+<p>Potěšilo by nás, kdyby naše svatba byla pro některé z vás i příležitostí užít si víkend bez dětí.</p> 
+<p>Zároveň ale chápeme, že ne pro každého je snadné zajistit hlídání, a proto je samozřejmě možné děti vzít s sebou.
+Pokud se tak rozhodnete, mějte prosím na paměti, že srub není vybaven dětským nábytkem (postýlky, židličky) ani zázemím, takže doporučujeme vzít si vše potřebné s sebou. Budeme se snažit vás ubytovat tak, abyste měli co nejvíce klidu a pohodlí. Pro rodiny z dětmi budou vyhrazeny primárně chatky s postelemi typu letiště, kde s dětmi můžete spát na jedné matraci. Také je potřeba počítat s tím, že večer bude v areálu živější atmosféra. </p>
+<p> Své ostatní mazlíčky prosím nechte doma.
+</p>
+</section>
+
+
+
 
 <section id="dresscode">
 <h2>Dress code</h2>
-<p>Informace o oblečení.</p>
+<p>Na obřad zvolte prosím společenské oblečení. Po jeho skončení se klidně převlékněte do něčeho pohodlnějšího, budeme ale rádi, pokud zůstanete laděni do těchto barev. Jenom bílou nechte nevěstě. </p>
+
+<div class="palette">
+
+    <div class="color-item">
+        <div class="color" style="background: var(--olive);"></div>
+        <span>Olive</span>
+    </div>
+
+    <div class="color-item">
+        <div class="color" style="background: var(--sage);"></div>
+        <span>Sage</span>
+    </div>
+
+    <div class="color-item">
+        <div class="color" style="background: var(--brown);"></div>
+        <span>Brown</span>
+    </div>
+
+    <div class="color-item">
+        <div class="color" style="background: var(--terracotta);"></div>
+        <span>Terracotta</span>
+    </div>
+
+    <div class="color-item">
+        <div class="color" style="background: var(--copper);"></div>
+        <span>Copper</span>
+    </div>
+
+</div>
+
 </section>
 
 <section id="harmonogram">
 <h2>Harmonogram</h2>
-<p>Program dne.</p>
+<p>V pátek budeme od 17 hodin postupně přijíždět a od večera počítáme s volnou zábavou, grilováním a posezením u ohně.
+V sobotu začneme společnou snídaní kolem deváté hodiny a samotný obřad proběhne v 11:30. Odpoledne nás čeká krájení dortu a další program, který ještě postupně upřesníme.
+V neděli ráno bude prostor na klidnou snídani, dobalení věcí a postupné odjezdy.
+</p>
+<p>V pátek plánujeme neformální večer u grilu a ohně, proto doporučujeme pohodlné a spíše teplejší oblečení, se kterým nebudete mít problém, pokud načichne kouřem. </p>
+<p> Počítejte prosím s tím, že většina programu bude probíhat venku. Srub se nachází na kopci a v říjnu tam může být chladněji a větrno, takže teplejší vrstva oblečení se určitě bude hodit. Pokud by nám počasí nepřálo, zázemí najdeme uvnitř u krbu.
+</p>
+
 </section>
 
-<section id="deti">
-<h2>Děti a domácí mazlíčci</h2>
-<p>Praktické informace.</p>
-</section>
 
 <section id="dary">
 <h2>Svatební dary</h2>
-<p>Informace o darech.</p>
+<p>Největší radost nám udělá, když dorazíte a užijete si víkend spolu s námi.
+Pokud byste nám chtěli něco darovat, budeme moc rádi když nám pomůžete uplatit svatbu a ubytování, které pro vás zajišťujeme.
+<div class="qr-block">
+    <img src="QRdary.png" alt="QR kód pro financni dary">
+</div>
+
+</p>
 </section>
 
 <section id="rsvp">
 <h2>Potvrzení účasti</h2>
-<p>Zde bude odkaz na formulář.</p>
+<p>Dejte nám prosím co nejdřív vědět jestli, jak a kdy dorazíte, ať můžeme vše včas přichystat k oběcné spojenosti.</p>
+<a href="https://forms.gle/V9AoUYRfcrz1HUpVA" target="_blank"  class="rsvp-btn">
+    Formulář pro potvrzení účasti
+</a>
+
 </section>
 
 </main>
+
+
+<div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img">
+    <p id="lightbox-text"></p>
+</div>
 
 <script>
 
 function toggleMenu() {
     document.getElementById("menu").classList.toggle("open");
+    document.getElementById("overlay").classList.toggle("open");
+}
+
+const items = document.querySelectorAll(".photo-item");
+
+items.forEach(item => {
+    item.addEventListener("click", () => {
+        const img = item.querySelector("img");
+        const text = item.querySelector("span");
+
+        document.getElementById("lightbox-img").src = img.src;
+        document.getElementById("lightbox-text").innerText = text.innerText;
+
+        document.getElementById("lightbox").style.display = "flex";
+    });
+});
+
+function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
 }
 
 </script>
