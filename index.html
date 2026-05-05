@@ -31,6 +31,10 @@
     --font-heading: 'Cormorant Garamond', serif;
     --font-script: 'Cormorant Garamond', serif;
 	--font-secondNames: 'Inter', sans-serif;
+	
+	--text-base: clamp(16px, 1.3vw, 22px);
+	--text-small: clamp(14px, 1.1vw, 16px);
+	--heading-h2: clamp(22px, 3vw, 35px);
 }
     
 html {
@@ -43,7 +47,10 @@ body {
 	font-family: var(--font-main);
     background: var(--white);
     color: var(--white);
+	font-size: var(--text-base);
+
 }
+
 
 /* HAMBURGER BUTTON */
 
@@ -160,6 +167,25 @@ section {
 section h2 {
     margin-top: 0;
 	font-family: var(--font-heading);
+	font-size: var(--heading-h2);
+}
+
+section p {
+    font-size: var(--text-base);
+    line-height: 1.6;
+}
+
+section h3 {
+    font-size: clamp(18px, 2.2vw, 22px);
+    margin-top: 20px;
+    margin-bottom: 6px;
+
+    font-family: var(--font-heading);
+    color: var(--terracotta);
+}
+
+section h3:first-of-type {
+    margin-top: 10px;
 }
 	
 section.hero {
@@ -408,10 +434,45 @@ section.hero {
     border-radius: 12px;
 }
 
+
 #lightbox p {
     color: white;
     margin-top: 12px;
     font-size: 16px;
+}
+
+.arrow,
+.lightbox-close {
+    position: absolute;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background: rgba(0,0,0,0.45);
+    border-radius: 50%;
+}
+
+.arrow {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    font-size: 42px;
+}
+
+.arrow.left {
+    left: 20px;
+}
+
+.arrow.right {
+    right: 20px;
+}
+
+.lightbox-close {
+    top: 20px;
+    right: 20px;
+    width: 42px;
+    height: 42px;
+    font-size: 28px;
 }
 
 .rsvp-btn {
@@ -434,14 +495,24 @@ section.hero {
     transition: all 0.2s ease;
 }
 
+
+.timeline {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 20px 0;
+}
+.timeline li {
+    margin: 6px 0;
+    font-size: var(--text-base);
+    line-height: 1.6;
+}
+.timeline li strong {
+    color: var(--terracotta);
+    margin-right: 6px;
+}
+
 </style>
 </head>
-
-
-
-
-
-
 
 
 <body>
@@ -523,7 +594,7 @@ Krasonice 55, 58864 Krasonice <br>
  <br> 
 Na místo se dostanete pohodlně autem a parkování je možné přímo u srubu.
 </p>
-<img src="srub1.jpeg" alt="Svatební místo" class="photo">
+<img src="srub0.jpeg" alt="Svatební místo" class="photo">
 
 </section>
 
@@ -541,23 +612,28 @@ Pokud preferujete větší soukromí nebo komfort, naprosto vás chápeme. V oko
 <div class="photo-grid">
 
     <div class="photo-item">
-        <img src="srub1.jpeg" alt="Hlavní budova">
+        <img src="srub6.jpg" alt="Hlavní budova">
         <span>Hlavní budova srubu</span>
     </div>
 
     <div class="photo-item">
-        <img src="srub2.jpeg" alt="Chatky">
-        <span>Chatky pro hosty</span>
+        <img src="srub3.jpg" alt="Chatky">
+        <span>Chatka - prosté ale praktické</span>
     </div>
 
     <div class="photo-item">
-        <img src="srub3.jpg" alt="Okolí">
-        <span>Okolní příroda</span>
+        <img src="srub2.jpeg" alt="Okolí">
+        <span>Společné spaní v patře</span>
     </div>
 	
 	    <div class="photo-item">
-        <img src="srub3.jpg" alt="Okolí">
-        <span>Okolní příroda</span>
+        <img src="srub5.jpg" alt="Okolí">
+        <span>Ohniště a okolí srubu</span>
+		</div>
+		
+		<div class="photo-item">
+        <img src="srub4.jpeg" alt="Okolí">
+        <span>Nic široko daleko</span>
     </div>
 
 </div>
@@ -615,11 +691,27 @@ Pokud se tak rozhodnete, mějte prosím na paměti, že srub není vybaven děts
 
 <section id="harmonogram">
 <h2>Harmonogram</h2>
-<p>V pátek budeme od 17 hodin postupně přijíždět a od večera počítáme s volnou zábavou, grilováním a posezením u ohně.
-V sobotu začneme společnou snídaní kolem deváté hodiny a samotný obřad proběhne v 11:30. Odpoledne nás čeká krájení dortu a další program, který ještě postupně upřesníme.
-V neděli ráno bude prostor na klidnou snídani, dobalení věcí a postupné odjezdy.
-</p>
-<p>V pátek plánujeme neformální večer u grilu a ohně, proto doporučujeme pohodlné a spíše teplejší oblečení, se kterým nebudete mít problém, pokud načichne kouřem. </p>
+<h3> Pátek </h3>
+<ul class="timeline">
+<li>Příjezd od 17 hodin</li>
+<li>Volná zábava, grilování, posezení u ohně</li>
+</ul>
+
+<h3> Sobota </h3>
+<ul class="timeline">
+    <li><strong>9:00</strong> – snídaně</li>
+    <li><strong>12:00</strong> – obřad</li>
+    <li><strong>12:30</strong> – otevření rautu</li>
+	<li><strong>12:30</strong> – volná zábava</li>
+</ul>
+
+<p>TO BE SPECIFIED</p>
+
+<h3> Neděle </h3>
+<ul class="timeline">
+<li>Odjezd po snídani</li>
+</ul>
+
 <p> Počítejte prosím s tím, že většina programu bude probíhat venku. Srub se nachází na kopci a v říjnu tam může být chladněji a větrno, takže teplejší vrstva oblečení se určitě bude hodit. Pokud by nám počasí nepřálo, zázemí najdeme uvnitř u krbu.
 </p>
 
@@ -628,8 +720,8 @@ V neděli ráno bude prostor na klidnou snídani, dobalení věcí a postupné o
 
 <section id="dary">
 <h2>Svatební dary</h2>
-<p>Největší radost nám udělá, když dorazíte a užijete si víkend spolu s námi.
-Pokud byste nám chtěli něco darovat, budeme moc rádi když nám pomůžete uplatit svatbu a ubytování, které pro vás zajišťujeme.
+<p>Vaše přítomnost je pro nás tím nejdůležitějším.
+Pokud budete chtít přispět, budeme vděční za podporu svatby a ubytování, které pro vás připravujeme.
 <div class="qr-block">
     <img src="QRdary.png" alt="QR kód pro financni dary">
 </div>
@@ -639,7 +731,7 @@ Pokud byste nám chtěli něco darovat, budeme moc rádi když nám pomůžete u
 
 <section id="rsvp">
 <h2>Potvrzení účasti</h2>
-<p>Dejte nám prosím co nejdřív vědět jestli, jak a kdy dorazíte, ať můžeme vše včas přichystat k oběcné spojenosti.</p>
+<p>Prosíme, dejte nám co nejdříve vědět, zda, jak a kdy dorazíte, abychom vše mohli včas připravit.</p>
 <a href="https://forms.gle/V9AoUYRfcrz1HUpVA" target="_blank"  class="rsvp-btn">
     Formulář pro potvrzení účasti
 </a>
@@ -649,8 +741,13 @@ Pokud byste nám chtěli něco darovat, budeme moc rádi když nám pomůžete u
 </main>
 
 
-<div id="lightbox" onclick="closeLightbox()">
+<div id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()">×</button>
+
+    <button class="arrow left" onclick="prevImage()">‹</button>
     <img id="lightbox-img">
+    <button class="arrow right" onclick="nextImage()">›</button>
+
     <p id="lightbox-text"></p>
 </div>
 
@@ -661,22 +758,48 @@ function toggleMenu() {
     document.getElementById("overlay").classList.toggle("open");
 }
 
+let currentIndex = 0;
+let gallery = [];
+
 const items = document.querySelectorAll(".photo-item");
 
-items.forEach(item => {
+items.forEach((item, index) => {
+    const img = item.querySelector("img");
+    const text = item.querySelector("span");
+
+    gallery.push({
+        src: img.src,
+        text: text.innerText
+    });
+
     item.addEventListener("click", () => {
-        const img = item.querySelector("img");
-        const text = item.querySelector("span");
-
-        document.getElementById("lightbox-img").src = img.src;
-        document.getElementById("lightbox-text").innerText = text.innerText;
-
-        document.getElementById("lightbox").style.display = "flex";
+        currentIndex = index;
+        openLightbox();
     });
 });
 
+function openLightbox() {
+    document.getElementById("lightbox").style.display = "flex";
+    updateLightbox();
+}
+
+function updateLightbox() {
+    document.getElementById("lightbox-img").src = gallery[currentIndex].src;
+    document.getElementById("lightbox-text").innerText = gallery[currentIndex].text;
+}
+
 function closeLightbox() {
     document.getElementById("lightbox").style.display = "none";
+}
+
+function nextImage() {
+    currentIndex = (currentIndex + 1) % gallery.length;
+    updateLightbox();
+	}
+
+function prevImage() {
+    currentIndex = (currentIndex - 1 + gallery.length) % gallery.length;
+    updateLightbox();
 }
 
 </script>
