@@ -6,6 +6,8 @@
 <title>Svatba</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=WindSong:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
     
 :root {
@@ -31,6 +33,7 @@
     --font-heading: 'Cormorant Garamond', serif;
     --font-script: 'Cormorant Garamond', serif;
 	--font-secondNames: 'Inter', sans-serif;
+	--font-scripting: 'WindSong', cursive;
 	
 	--text-base: clamp(16px, 1.3vw, 22px);
 	--text-small: clamp(14px, 1.1vw, 16px);
@@ -509,6 +512,52 @@ section.hero {
     margin-right: 6px;
 }
 
+.checklist-hero-img {
+    display: block;
+
+    width: clamp(60px, 45%, 250px);
+    margin: 0px auto 0px auto;
+}
+
+.checklist-title {
+    text-align: center;
+    font-family: var(--font-scripting);
+    font-weight: 500;
+    font-size: clamp(24px, 5vw, 54px);
+    color: var(--brown);
+    margin-bottom: 24px;
+}
+
+.checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.check-item {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: 14px;
+
+    align-items: center;
+    text-align: left;
+}
+
+.check-icon {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    display: block;
+}
+
+.check-content {
+    font-size: var(--text-base);
+    line-height: 1.6;
+
+    color: var(--olive);
+}
+
 </style>
 </head>
 
@@ -533,9 +582,9 @@ section.hero {
 <a href="#deti" onclick="toggleMenu()">Děti a mazlíčci</a>
 <a href="#dresscode" onclick="toggleMenu()">Dress code</a>
 <a href="#harmonogram" onclick="toggleMenu()">Harmonogram</a>
+<a href="#checklist" onclick="toggleMenu()">Svatební checklist</a>
 <a href="#dary" onclick="toggleMenu()">Svatební dary</a>
 <a href="#rsvp" onclick="toggleMenu()">Potvrzení účasti</a>
-
 
 </nav>
 <div id="overlay" onclick="toggleMenu()"></div>
@@ -600,9 +649,7 @@ Na místo se dostanete pohodlně autem a parkování je možné přímo u srubu.
 <h2>Ubytování</h2>
 <p>Ubytování je v areálu srubu a je pro všechny hosty plně hrazené. </p>
 <p>
-K dispozici budou chatky pro dvě až tři osoby primárně pro rodiny s dětmi, a dále společné spaní v podkroví hlavní budovy.
-Chatky jsou vybavené topením, takže se nemusíte obávat chladu. Sprchy i toalety jsou společné a nacházejí se v hlavní budově srubu.
-<br> <strong>Vezměte si, prosím, vlastní ručníky.</strong><br >
+K dispozici budou chatky pro dvě až tři osoby primárně pro rodiny s dětmi, a dále společné spaní v podkroví hlavní budovy. Chatky jsou vybavené topením, takže se nemusíte obávat chladu. Sprchy i toalety jsou společné a nacházejí se v hlavní budově srubu.
 </p>
 <p>
 Pokud preferujete větší soukromí nebo komfort, naprosto vás chápeme. V okolí, například v Telči nebo blízkých vesnicích je mnoho variant ubytování a určitě si najdete to, které vyhovuje vašemu vkusu. Budeme mít k dispozici svatebního řidiče, který vás po domluvě může odvézt i přivézt.
@@ -643,9 +690,8 @@ Pokud preferujete větší soukromí nebo komfort, naprosto vás chápeme. V oko
 <h2>Děti a domácí mazlíčci</h2>
 <p>Obřad si přejeme prožít striktně bez dětí. Po dobu obřadu bude vyčleněno místo na dětský koutek a zajištěno profesionální hlídání. </p>
 <p>Potěšilo by nás, kdyby naše svatba byla pro některé z vás i příležitostí užít si víkend bez dětí.</p> 
-<p>Zároveň ale chápeme, že ne pro každého je snadné zajistit hlídání, a proto je samozřejmě možné děti vzít s sebou. Pokud se tak rozhodnete, mějte prosím na paměti, že srub není vybaven dětským nábytkem (postýlky, židličky) ani zázemím, takže doporučujeme vzít si vše potřebné s sebou. 
-Stejně tak si prosím přibalte nějaké hračky, dětské knížky nebo malování, abychom dětský koutek společně vybavili. <br>
-Budeme se snažit vás ubytovat tak, abyste měli co nejvíce klidu a pohodlí. Pro rodiny z dětmi budou vyhrazeny primárně chatky s postelemi typu letiště, kde s dětmi můžete spát na jedné matraci. Také je potřeba počítat s tím, že večer bude v areálu živější atmosféra. </p>
+<p>Pokud se ale rozhodnete vzít děti s sebou, prosíme, počítejte s tím, že srub není vybaven dětským nábytkem ani zázemím, a doporučujeme si přivézt vše potřebné. Stejně tak prosím nezapomeňte na hračky, knížky nebo malování, abychom mohli společně vybavit dětský koutek. <br>
+Pro rodiny z dětmi budou vyhrazeny primárně chatky s postelemi typu letiště, kde s dětmi můžete spát na jedné matraci. Také je potřeba počítat s tím, že večer bude v areálu živější atmosféra. </p>
 <p> Své ostatní mazlíčky prosím nechte doma.
 </p>
 </section>
@@ -713,20 +759,117 @@ Budeme se snažit vás ubytovat tak, abyste měli co nejvíce klidu a pohodlí. 
 <li>Odjezd po snídani</li>
 </ul>
 
-<p> Počítejte prosím s tím, že většina programu bude probíhat venku. Srub se nachází na kopci a v říjnu tam může být chladněji a větrno, takže teplejší vrstva oblečení se určitě bude hodit. Pokud by nám počasí nepřálo, zázemí najdeme uvnitř u krbu.
+<p> Počítejte prosím s tím, že většina programu bude probíhat venku. Srub se nachází na kopci a v říjnu tam může být chladněji a větrno, takže teplejší vrstva oblečení se určitě bude hodit. Pokud by nám počasí nepřálo, zázemí najdeme uvnitř u krbu. 
 </p>
+<p>
+Obřad se bude konat na trávě, proto si nazujte pohodlné boty, široký podpatek, boty na platformě. Pro nejodvážnější z vás budeme mít připravené chrániče na jehly.
+</p>
+<p>
+Připravili jsme pro Vás praktický seznam věcí, které doporučujeme vzít s sebou.
+</p>
+
+</section>
+
+<section id="checklist">
+
+<img src="chata.png" alt="" class="checklist-hero-img">
+
+    <div class="checklist-title">
+        Co si vzít s sebou
+    </div>
+
+
+
+    <div class="check-item">
+		<img src="CHL_1.png" alt="" class="check-icon">
+		<div class="check-content">
+			Pohodlné oblečení
+		</div>
+	</div>
+	<div class="check-item">
+		<img src="CHL_2.png" alt="" class="check-icon">
+		<div class="check-content">
+			Slavnostní oblečení na obřad
+		</div>
+	</div>
+	<div class="check-item">
+		<img src="CHL_3.png" alt="" class="check-icon">
+		<div class="check-content">
+			Teplé oblečení k ohni
+		</div>
+	</div>
+	
+	<div class="check-item">
+		<img src="CHL_4.png" alt="" class="check-icon">
+		<div class="check-content">
+			Pohodlné boty do trávy kolem srubu
+		</div>
+	</div>
+	<div class="check-item">
+		<img src="CHL_13.png" alt="" class="check-icon">
+		<div class="check-content">
+			Náhradní oblečení na převlékání
+		</div>
+	</div>
+	<div class="check-item">
+		<img src="CHL_12.png" alt="" class="check-icon">
+		<div class="check-content">
+			Pyžamo a věci na spaní
+		</div>
+	</div>
+	<div class="check-item">
+		<img src="CHL_11.png" alt="" class="check-icon">
+		<div class="check-content">
+			Hygienu a ručník
+		</div>
+	</div>
+	<div class="check-item">
+		<img src="CHL_6.png" alt="" class="check-icon">
+		<div class="check-content">
+			Kartáček a pastu
+		</div>
+	</div>
+	<div class="check-item">
+		<img src="CHL_6.png" alt="" class="check-icon">
+		<div class="check-content">
+			Léky které pravidelně užíváte
+		</div>
+	</div>
+	<div class="check-item">
+		<img src="CHL_8.png" alt="" class="check-icon">
+		<div class="check-content">
+			Nabíječku nebo powerbanku
+		</div>
+	</div>
+	<div class="check-item">
+		<img src="CHL_9.png" alt="" class="check-icon">
+		<div class="check-content">
+			Špunty do uší pro lehčí spaní
+		</div>
+	</div>
+	<div class="check-item">
+		<img src="CHL_10.png" alt="" class="check-icon">
+		<div class="check-content">
+			Náhradní ponožky (mokrá tráva po ránu je jistota)
+		</div>
+	</div>
+	<div class="check-item">
+		<img src="CHL_14.png" alt="" class="check-icon">
+		<div class="check-content">
+			Dobrou náladu a výdrž na celý víkend
+		</div>
+	</div>
 
 </section>
 
 
 <section id="dary">
 <h2>Svatební dary</h2>
-<p>Vaše přítomnost je pro nás tím nejdůležitějším.
-Pokud budete chtít přispět, budeme vděční za podporu svatby a ubytování, které pro vás připravujeme.
+<p>Vaše přítomnost je pro nás nejdůležitější. Pokud byste nás přesto chtěli obdarovat, budeme vděční za příspěvek na pokrytí svatebních nákladů. Můžete jej zaslat na účet nebo ponechat na určeném místě v den svatby.
+</p>
 <div class="qr-block">
-    <img src="QRdary.png" alt="QR kód pro financni dary">
+    <img src="QRdary.jpg" alt="QR kód pro financni dary">
 </div>
-
 </p>
 </section>
 
